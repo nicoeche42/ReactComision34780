@@ -1,0 +1,47 @@
+.logo {
+    width: 20%;
+    padding: 0.5em 0.5em 0.5em;
+}
+
+.branding {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+a {
+    text-decoration: none;
+    font-weight: 550;
+}
+
+.nav-paths {
+    width: 100vh;
+    display: flex;
+    padding: 10px 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container-nav {
+    color: white;
+    background-image: linear-gradient(rgb(53, 22, 0), rgb(87, 37, 2));
+    width: 100%;
+    left: 0;
+    top: 0;
+    position: fixed;
+}
+.navLinks  {
+        color: white;
+}
