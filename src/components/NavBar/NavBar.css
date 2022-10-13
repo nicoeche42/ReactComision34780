@@ -1,5 +1,4 @@
 .logo {
-    width: 20%;
     padding: 0.5em 0.5em 0.5em;
 }
 
@@ -9,39 +8,53 @@
     justify-content: flex-start;
 }
 
-ul {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-a {
-    text-decoration: none;
-    font-weight: 550;
-}
-
-.nav-paths {
-    width: 100vh;
-    display: flex;
-    padding: 10px 20px;
-    align-items: center;
-    justify-content: space-between;
-}
-
 .container-nav {
+    text-decoration: none;
     color: white;
     background-image: linear-gradient(rgb(53, 22, 0), rgb(87, 37, 2));
     width: 100%;
     left: 0;
     top: 0;
-    position: fixed;
+
 }
-.navLinks  {
-        color: white;
+
+.Categories {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.Option {
+    text-decoration: none;
+    background: transparent;
+    flex: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #FFFFFF;
+
+}
+.Categories {
+    text-decoration: none;
+}
+
+.ActiveOption {
+    text-shadow: black 0.1em 0.1em 0.2em;
+    text-decoration: none;
+    border-radius: 25;
+    margin: 0 50px;
+    width: auto;
+    background: #ffccd2;
+    flex: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+}
+.ButtonNav{
+    text-decoration: none;
+    background-color: #ffccd2;
+    color: white;
 }
