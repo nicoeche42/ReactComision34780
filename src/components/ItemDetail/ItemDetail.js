@@ -13,13 +13,17 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
     const { setNotification } = useContext(NotificationContext)
 
     const handleOnAdd = (quantity) => {
-        const productToAdd = {
+       
+       /* addItem({ id, name, price, quantity}) */
+       
+          const productToAdd = {
             id, name, price, quantity
         }
         addItem(productToAdd, quantity)
         setNotification('succes', `Se agrego correctamente ${quantity} ${name}`)
+        
     }
-
+ 
    /*  const quantityAdded = getProductQuantity(id) */
 
     return (
