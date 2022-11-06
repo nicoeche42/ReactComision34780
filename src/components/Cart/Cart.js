@@ -1,19 +1,21 @@
+import './Cart.css'
 import React from "react"
 import { CartContext } from "../../Context/CartContext"
 import { useContext } from "react"
+ 
 
 
 const Cart = () => {
     const { cart, removeItem, total, clearCart } = useContext(CartContext)
 
     return (
-        <div>
+        <div className='CarritoStyle'>
             <h1>Carrito Compras</h1>
             {
                 cart.map(prod => (
                     <div>
                         {prod.name} - cantidad: {prod.quantity}
-                        <button onClick={() => removeItem(prod.id)}>remover</button>
+                        <button onClick={() => removeItem(prod.id)} className='ButtonCart'>remover</button>
                     </div>
                 ))
             }
@@ -21,7 +23,7 @@ const Cart = () => {
                 Precio total: {total}
             </div>
 
-            <button onClick={() => clearCart()}>Limpiar carrito</button>
+            <button onClick={() => clearCart()} className='ButtonCart'>Limpiar carrito</button>
         </div >
 
     )

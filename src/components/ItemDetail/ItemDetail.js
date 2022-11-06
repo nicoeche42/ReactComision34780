@@ -20,11 +20,11 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
             id, name, price, quantity
         }
         addItem(productToAdd, quantity)
-        setNotification('succes', `Se agrego correctamente ${quantity} ${name}`)
+        setNotification('error', `Se agrego correctamente ${quantity} ${name}`)
         
     }
  
-   /*  const quantityAdded = getProductQuantity(id) */
+   const quantityAdded = getProductQuantity(id)
 
     return (
         <article className="CardItem">
@@ -49,7 +49,7 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
             </section>
             <footer className="ItemFooter">
                 {
-                        <ItemCount onAdd={handleOnAdd} stock={stock} />
+                        <ItemCount onAdd={handleOnAdd} stock={stock} initial={quantityAdded} />
                     }
             </footer>
         </article>

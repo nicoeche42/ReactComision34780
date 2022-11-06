@@ -1,0 +1,29 @@
+.CarritoStyle {
+    background-color: rgb(87, 37, 2) ;
+    width: 500px;
+    padding: 30px;
+    margin: 30px;
+    background-color: #582805;
+    color: #ffccd2;
+    border-radius: 10px;
+}
+.ButtonCart {
+    width: auto;
+    padding: 12px;
+    font-size: 16px;
+    background-color: #ffccd2;
+    border-radius: 8px;
+    flex: none;
+    order: 1;
+    align-self: center;
+    flex-grow: 0;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #FFFFFF;
+    border: none;
+    border-style: none;
+    cursor: pointer;
+    outline: inherit;
+    
+}
