@@ -1,14 +1,25 @@
 import './ItemDetail.css'
 import ItemCount from '../ItemCount/ItemCount'
+import { useContext } from 'react'
+import { CartContext } from '../../CartContext/CartContext'
+import { Link } from 'react-router-dom'
+import { NotificationContext } from '../../notification/NotificationService'
+
+
 
 const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
    
+    const {addItem, isInCart} = useContext(CartContext)
+    const { setNotification } = useContext(NotificationContext)
+
     const handleOnAdd = (quantity) => {
         const productToAdd = {
             id, name, price, quantity
         }
-        console.log(productToAdd)
-    }
+        addItem(productToAdd)
+        setNotification('error', `Se agrego correctamente ${quantity} ${name}`)
+    } 
+
 
     return (
         <article className="CardItem">
@@ -31,8 +42,8 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
                     Precio: {price}
                 </p>
             </section>           
-            <footer className='ItemFooter'>
-                <ItemCount onAdd={handleOnAdd} stock={stock} />
+            <footer className="ItemFooter">
+                <ItemCount onAdd={handleOnAdd} stock={stock}/>
             </footer>
         </article>
     )
