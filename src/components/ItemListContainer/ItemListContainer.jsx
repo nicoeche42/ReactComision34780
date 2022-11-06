@@ -13,21 +13,25 @@ const ItemListContainer = ({ greeting }) => {
   const { categoryId } = useParams()
 
   useEffect(() => {
+    document.title = 'Listado de productos'
+  }, [])
+
+  useEffect(() => {
     setLoading(true)
     const collectionRef = categoryId
-    ? query(collection(db, 'products'), where('category', '==', categoryId))
-    : collection(db, 'products')
+      ? query(collection(db, 'products'), where('category', '==', categoryId))
+      : collection(db, 'products')
 
     getDocs(collectionRef).then(response => {
-        console.log(response)
-        const productsAdapted = response.docs.map(doc => {
-          const data = doc.data()
-          console.log(data)
+      console.log(response)
+      const productsAdapted = response.docs.map(doc => {
+        const data = doc.data()
+        console.log(data)
 
-          return { id: doc.id, ...data }
-        })
+        return { id: doc.id, ...data }
+      })
 
-        setProducts(productsAdapted)
+      setProducts(productsAdapted)
     }).catch(error => {
       console.log(error)
     }).finally(() => {
@@ -35,20 +39,20 @@ const ItemListContainer = ({ greeting }) => {
     })
   }, [categoryId])
 
- /*    useEffect(() => {
-    const onResize = (e) => console.log(e)
-
-    window.addEventListener('resize', onResize)
-
-    return () => {
-      window.removeEventListener('resize', onResize)
-    } 
-  }, [])  */
+      useEffect(() => {
+     const onResize = (e) => console.log(e)
+ 
+     window.addEventListener('resize', onResize)
+ 
+     return () => {
+       window.removeEventListener('resize', onResize)
+     } 
+   }, [])  
   if (loading) {
     return <h1>Cargando productos...</h1>
   }
   return (
-    <div onClick={() => console.log('itemlistContainer')}>
+    <div>
       <ItemList products={products} />
     </div>
   )

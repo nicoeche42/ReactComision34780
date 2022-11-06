@@ -2,31 +2,34 @@ import './ItemDetailContainer.css'
 import { useState, useEffect } from 'react'
 /* import { getProductById } from '../../asyncMock' */
 import ItemDetail from '../ItemDetail/ItemDetail'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { getDoc, doc } from 'firebase/firestore'
 import { db } from '../../service/firebase'
 
-const ItemDetailContainer = () => {
+const ItemDetailContainer = ({setCart}) => {
     const [product, setProduct] = useState()
     const [loading, setLoading] = useState(true)
 
     const { productId } = useParams()
-    console.log(productId)
+
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        document.title = loading ? 'Cargando' : `Detalle ${product.name} `
+    })
 
     useEffect(() => {
 
         const docRef = doc(db, 'products', productId)
 
         getDoc(docRef).then(response => {
-            console.log(response)
+
             const data = response.data()
             const productAdapted = { id: response.id, ...data }
             setProduct(productAdapted)
-
         }).finally(() => {
             setLoading(false)
         })
-
     }, [productId])
 
     if(loading) {
@@ -35,6 +38,7 @@ const ItemDetailContainer = () => {
 
     return(
         <div className='ItemDetailContainer' >
+            <button className='Option' onClick={() => navigate(-1)}>Back</button>
             <ItemDetail  {...product} />
         </div>
     )

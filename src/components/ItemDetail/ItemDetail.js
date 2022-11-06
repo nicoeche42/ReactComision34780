@@ -1,25 +1,26 @@
 import './ItemDetail.css'
 import ItemCount from '../ItemCount/ItemCount'
 import { useContext } from 'react'
-import { CartContext } from '../../CartContext/CartContext'
+import { CartContext } from '../../Context/CartContext'
 import { Link } from 'react-router-dom'
 import { NotificationContext } from '../../notification/NotificationService'
 
 
 
 const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
-   
-    const {addItem, isInCart} = useContext(CartContext)
+
+    const { addItem, isInCart, getProductQuantity } = useContext(CartContext)
     const { setNotification } = useContext(NotificationContext)
 
     const handleOnAdd = (quantity) => {
         const productToAdd = {
             id, name, price, quantity
         }
-        addItem(productToAdd)
-        setNotification('error', `Se agrego correctamente ${quantity} ${name}`)
-    } 
+        addItem(productToAdd, quantity)
+        setNotification('succes', `Se agrego correctamente ${quantity} ${name}`)
+    }
 
+   /*  const quantityAdded = getProductQuantity(id) */
 
     return (
         <article className="CardItem">
@@ -29,7 +30,7 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
                 </h2>
             </header>
             <picture>
-                <img src={img} alt={name} className="ItemImg"/>
+                <img src={img} alt={name} className="ItemImg" />
             </picture>
             <section>
                 <p className="Info">
@@ -41,9 +42,11 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
                 <p className="Info">
                     Precio: {price}
                 </p>
-            </section>           
+            </section>
             <footer className="ItemFooter">
-                <ItemCount onAdd={handleOnAdd} stock={stock}/>
+                {
+                        <ItemCount onAdd={handleOnAdd} stock={stock} />
+                    }
             </footer>
         </article>
     )

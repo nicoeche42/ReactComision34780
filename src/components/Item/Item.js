@@ -1,18 +1,9 @@
 import './Item.css'
 import { Link } from 'react-router-dom'
-import { useContext } from 'react'
-import { MyContext } from '../../App'
 
 const Item = ({id, name, img, price }) => {
-    const value = useContext(MyContext)
-    console.log('item: ', value)
-    const handleClick = (e) => {
-        console.log('hice click en item')
-        e.stopPropagation()
-    }
-
     return (
-        <article className="CardItem" onClick={handleClick}>
+        <article className="CardItem">
             <header className="Header">
                 <h2 className="ItemHeader">
                     {name}
@@ -27,7 +18,7 @@ const Item = ({id, name, img, price }) => {
                 </p>
             </section>           
             <footer className="ItemFooter">
-               <Link to={`/detail/${id}`}>Ver detalle</Link>
+               <Link to={`/detail/${id}`} className='Option'>Ver detalle</Link>
             </footer>
         </article>
     )
