@@ -8,11 +8,11 @@ const Cart = () => {
 
     return (
         <div>
-            <h1>CART</h1>
+            <h1>Carrito Compras</h1>
             {
                 cart.map(prod => (
                     <div>
-                        {prod.name} - cantiodad: {prod.quantity}
+                        {prod.name} - cantidad: {prod.quantity}
                         <button onClick={() => removeItem(prod.id)}>remover</button>
                     </div>
                 ))
