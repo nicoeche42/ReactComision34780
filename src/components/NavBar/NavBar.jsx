@@ -27,7 +27,7 @@ const NavBar = () => {
   return (
     <nav className="container-nav">
       <div>
-        <a href="https://solaccursiopasteleria.vercel.app/">
+        <a href="https://accursiopasteleria.vercel.app/">
           <img
             src="https://solaccursiopasteleria.netlify.app/public/image/logoSol2.png"
             alt=""
