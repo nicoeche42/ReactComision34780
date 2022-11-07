@@ -1,6 +1,6 @@
-import { useContext } from "react"
-import { CartContext } from "../../CartContext/CartContext"
-/* import { addDoc, collection } from "firebase/firestore" */
+import {  useContext } from "react"
+import './Checkout.css';
+import { CartContext } from "../../Context/CartContext"
 import { NotificationContext } from "../../notification/NotificationService"
 import { collection, getDocs, query, where, documentId, writeBatch, addDoc } from "firebase/firestore"
 import { db } from "../../service/firebase"
@@ -55,7 +55,7 @@ const Checkout = () => {
 
                 const orderAdded = await addDoc(orderRef, objOrder)
                 
-                setNotification('succes', `El id de su orden es: ${orderAdded.id}`)
+                setNotification('success', `El id de su orden es: ${orderAdded.id}`)
             }else {
                setNotification('error','hay productos que estan fuera de stock')
             }
@@ -82,3 +82,5 @@ const Checkout = () => {
 }
 
 export default Checkout
+
+

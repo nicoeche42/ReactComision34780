@@ -20,7 +20,7 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
             id, name, price, quantity
         }
         addItem(productToAdd, quantity)
-        setNotification('error', `Se agrego correctamente ${quantity} ${name}`)
+        setNotification('success', `Se agrego correctamente ${quantity} ${name}`)
         
     }
  

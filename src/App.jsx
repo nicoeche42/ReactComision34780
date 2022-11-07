@@ -8,6 +8,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { CartProvider } from './Context/CartContext';
 import { NotificationProvider } from './notification/NotificationService';
 import Cart from './components/Cart/Cart'
+import Checkout from './components/Checkout/Checkout';
+import Form from './components/Form/Form';
 
 /* 
 export const MyContext = createContext()
