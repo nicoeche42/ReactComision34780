@@ -2,12 +2,12 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from 'firebase/firestore'
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAnKFhcuBqRqJOiqU2_XTafpjLSNvSyLwc",
-  authDomain: "sol-accursio-pasteleria.firebaseapp.com",
-  projectId: "sol-accursio-pasteleria",
-  storageBucket: "sol-accursio-pasteleria.appspot.com",
-  messagingSenderId: "495959720170",
-  appId: "1:495959720170:web:ad3b22d87c257f3aa85793"
+  apiKey: process.env.REACT_APP_apiKey,
+  authDomain: process.env.REACT_APP_authDomain,
+  projectId: process.env.REACT_APP_projectId,
+  storageBucket: process.env.REACT_APP_storageBucket,
+  messagingSenderId: process.env.REACT_APP_messagingSenderId,
+  appId: process.env.REACT_APP_appId
 };
 
 const app = initializeApp(firebaseConfig);
