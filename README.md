@@ -1,4 +1,3 @@
-Nicolas Echeverria
 Proyecto E-Commerce - Sol Accursio Pasteleria
 This website is powered by React, HTML5, Firebase and Bootstrap
 
